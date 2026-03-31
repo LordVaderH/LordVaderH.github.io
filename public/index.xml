@@ -9,11 +9,12 @@
     <lastBuildDate>Mon, 30 Mar 2026 13:29:33 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>我的个人博客，我来了!</title>
+      <title>我的个人博客，我来了！</title>
       <link>http://localhost:1313/posts/my-first-blog/</link>
       <pubDate>Mon, 30 Mar 2026 13:29:33 +0000</pubDate>
       <guid>http://localhost:1313/posts/my-first-blog/</guid>
-      <description>&lt;p&gt;这是第一篇博客，我希望我借助博客去分享我的感受和整理我的思绪。&lt;/p&gt;</description>
+      <description>&lt;p&gt;这是我的第一篇博客。我希望借助博客去分享我的感受和整理我的思绪。&lt;/p&gt;
+&lt;p&gt;今天我终于成功搭建了自己的个人网站，虽然中间踩了不少坑，但看到网页运行起来的那一刻，觉得一切都值了！&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
