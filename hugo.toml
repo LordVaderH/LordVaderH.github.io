@@ -11,7 +11,7 @@ theme = "PaperMod"
     
     # 开启首页的个人简介模式（可选，会让首页更好看）
     [params.profileMode]
-        enabled = true
+        enabled = false
         title = "LordVaderH 的博客"
         subtitle = "分享感受，整理思绪"
 
