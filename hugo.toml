@@ -1,4 +1,17 @@
 baseURL = 'https://lordvaderh.github.io/'
-locale = 'en-us'
-title = 'My New Hugo Project'
+languageCode = 'zh-cn'
+title = '我的个人博客'
 theme = "PaperMod"
+
+[params]
+    # 允许在首页显示文章列表
+    showFullContents = false
+    # 告诉主题去哪个文件夹抓取内容显示在首页
+    mainSections = ["posts"]
+    
+    # 开启首页的个人简介模式（可选，会让首页更好看）
+    [params.profileMode]
+        enabled = true
+        title = "LordVaderH 的博客"
+        subtitle = "分享感受，整理思绪"
+
