@@ -1,50 +1,60 @@
 <style>
-    /* 1. 强制全站（含首页、列表页、文章页）背景 */
+    /* 全站背景图 */
     html {
         background: url("https://lordvaderh.github.io/images/bg.png") no-repeat center center fixed !important;
         background-size: cover !important;
     }
 
     body {
-        background: transparent !important; /* 杀掉 body 的默认白/灰底 */
-    }
-
-    /* 2. 主容器透明化，露出背景 */
-    .main, .list, .profile_inner {
         background: transparent !important;
-        max-width: 850px !important;
     }
 
-    /* --- 白天模式适配 --- */
-    .post-entry, .post-content, .article-content, .first-entry {
-        background: rgba(255, 255, 255, 0.75) !important; /* 足够厚的白玻璃 */
-        backdrop-filter: blur(10px) !important;
-        border-radius: 15px !important;
-        color: #000000 !important; /* 强制纯黑字，解决看不清 */
+    .main {
+        max-width: 850px !important;
+        background: transparent !important;
+    }
+
+    /* --- 白天模式：黑字强对比 --- */
+    .post-entry, .post-content, .article-content, .first-entry, .list {
+        background: rgba(255, 255, 255, 0.85) !important; /* 稍微加厚一点，减少背景干扰 */
+        backdrop-filter: blur(12px) !important;
+        border-radius: 12px !important;
+        color: #000000 !important; /* 强制纯黑字 */
         margin-bottom: 20px !important;
         padding: 25px !important;
     }
 
-    /* --- 黑夜模式适配（彻底治愈白内障） --- */
+    /* 强化白天标题 */
+    .post-title, .entry-header h2 {
+        color: #000 !important;
+        font-weight: 900 !important; /* 加粗 */
+    }
+
+    /* --- 黑夜模式：深邃纯黑，白字跳脱 --- */
+    /* 彻底杀掉白内障感的灰底，换成纯黑遮罩 */
     .dark .post-entry, .dark .post-content, .dark .article-content, .dark .list, .dark .first-entry {
-        background: rgba(0, 0, 0, 0.8) !important; /* 极深黑玻璃，衬托白字 */
+        background: rgba(0, 0, 0, 0.9) !important; /* 提高到 0.9，让容器接近纯黑 */
         backdrop-filter: blur(15px) !important;
         color: #ffffff !important; /* 强制纯白字 */
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
     }
 
-    /* 文字阴影补丁：让文字在复杂的背景图上跳出来 */
-    .post-title, .entry-header h2, .entry-content, .post-header {
-        color: inherit !important;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.1) !important;
-    }
-
+    /* 强化黑夜模式标题：加粗 + 发光阴影 */
     .dark .post-title, .dark .entry-header h2 {
-        text-shadow: 0 0 10px rgba(0,0,0,0.8) !important;
+        color: #ffffff !important;
+        font-weight: 900 !important;
+        text-shadow: 0 0 10px rgba(0,0,0,1), 0 0 5px rgba(255,255,255,0.2) !important;
     }
 
-    /* 导航栏和页脚透明化 */
-    .nav, .footer {
-        background: transparent !important;
+    /* 强化正文可读性 */
+    .entry-content, .post-description {
+        line-height: 1.6 !important;
+        font-weight: 500 !important;
+    }
+
+    /* 适配导航栏，确保在背景图上不突兀 */
+    .nav {
+        background: rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(5px);
     }
 </style>
