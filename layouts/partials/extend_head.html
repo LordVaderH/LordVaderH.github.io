@@ -1,46 +1,53 @@
 <style>
-    /* 1. 强制全站（包括主页和博客页）显示背景图 */
-    html, body {
+    /* 1. 强制全站背景图 (解决主页不显示问题) */
+    html, body, .list, .main, .post {
         background-image: url("https://lordvaderh.github.io/images/bg.png") !important;
         background-attachment: fixed !important;
         background-size: cover !important;
         background-position: center !important;
-        background-color: #121212 !important; /* 兜底深色 */
     }
 
-    /* 2. 容器透明度与宽度优化 */
+    /* 2. 容器基础样式：让中间的方块变窄，露出更多背景 */
     .main {
-        max-width: 900px !important;
+        max-width: 800px !important;
         background: transparent !important;
     }
 
-    /* --- 白天模式：清透感 --- */
+    /* --- 白天模式：彻底告别模糊 --- */
     .post-entry, .post-content, .article-content, .list, .first-entry {
-        background: rgba(255, 255, 255, 0.8) !important;
+        background: rgba(255, 255, 255, 0.8) !important; /* 稍微加厚，保护文字 */
         backdrop-filter: blur(10px) !important;
         border-radius: 12px !important;
-        color: #1a1a1a !important;
+        color: #000000 !important; /* 强制纯黑字 */
         margin-bottom: 20px !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
     }
 
     /* --- 黑夜模式：彻底治愈“白内障” --- */
-    /* 我们让容器变深，让文字变亮 */
+    /* 关键：取消主题自带的灰色滤镜，改用深色半透明 */
+    .dark body {
+        background-color: #000000 !important; 
+    }
+
     .dark .post-entry, .dark .post-content, .dark .article-content, .dark .list, .dark .first-entry {
-        background: rgba(0, 0, 0, 0.85) !important; /* 接近纯黑的半透明 */
+        background: rgba(0, 0, 0, 0.75) !important; /* 足够深的底色，才能衬托白字 */
         backdrop-filter: blur(15px) !important;
-        border: 1px solid rgba(255, 255, 255, 0.15) !important;
-        color: #ffffff !important; /* 强制文字纯白 */
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: #ffffff !important; /* 强制纯白字 */
     }
 
-    /* 确保主页标题在黑夜模式下清晰 */
-    .dark .entry-header h2, .dark .post-title, .dark .entry-content {
-        color: #ffffff !important;
-        text-shadow: 1px 1px 5px rgba(0,0,0,0.5) !important;
+    /* 强化标题：无论怎么切，都要一眼看清 */
+    .post-title, .entry-header h2, .entry-content {
+        color: inherit !important; /* 继承上面设置的黑/白 */
     }
 
-    /* 3. 修复主页可能出现的空白背景 */
-    .list {
+    .dark .post-title, .dark .entry-header h2 {
+        text-shadow: 0 0 8px rgba(255,255,255,0.2) !important;
+    }
+
+    /* 解决搜索栏和导航栏的违和感 */
+    .nav, .footer {
         background: transparent !important;
+        backdrop-filter: blur(5px);
     }
 </style>
-
