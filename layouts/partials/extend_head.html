@@ -1,46 +1,46 @@
 <style>
-    body {
+    /* 1. 强制全站（包括主页和博客页）显示背景图 */
+    html, body {
         background-image: url("https://lordvaderh.github.io/images/bg.png") !important;
         background-attachment: fixed !important;
         background-size: cover !important;
         background-position: center !important;
+        background-color: #121212 !important; /* 兜底深色 */
     }
 
+    /* 2. 容器透明度与宽度优化 */
     .main {
-        max-width: 850px !important;
+        max-width: 900px !important;
         background: transparent !important;
     }
 
-    /* --- 白天模式：保持轻盈 --- */
-    .post-entry, .post-content, .article-content, .list {
-        background: rgba(255, 255, 255, 0.7) !important; 
+    /* --- 白天模式：清透感 --- */
+    .post-entry, .post-content, .article-content, .list, .first-entry {
+        background: rgba(255, 255, 255, 0.8) !important;
         backdrop-filter: blur(10px) !important;
-        -webkit-backdrop-filter: blur(10px) !important;
         border-radius: 12px !important;
-        color: #1d1d1f !important;
-        padding: 20px !important;
+        color: #1a1a1a !important;
+        margin-bottom: 20px !important;
     }
 
-    /* --- 黑夜模式：深色压底，确保文字跳脱出来 --- */
-    .dark .post-entry, .dark .post-content, .dark .article-content, .dark .list {
-        background: rgba(10, 10, 10, 0.85) !important; /* 极深的底色 */
+    /* --- 黑夜模式：彻底治愈“白内障” --- */
+    /* 我们让容器变深，让文字变亮 */
+    .dark .post-entry, .dark .post-content, .dark .article-content, .dark .list, .dark .first-entry {
+        background: rgba(0, 0, 0, 0.85) !important; /* 接近纯黑的半透明 */
         backdrop-filter: blur(15px) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        color: #f0f0f0 !important; /* 纯净的浅灰白文字 */
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        color: #ffffff !important; /* 强制文字纯白 */
     }
 
-    /* 强化黑夜模式下的标题和正文 */
-    .dark .post-title, .dark .first-entry h2, .dark .entry-header h2 {
+    /* 确保主页标题在黑夜模式下清晰 */
+    .dark .entry-header h2, .dark .post-title, .dark .entry-content {
         color: #ffffff !important;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.5) !important; /* 文字阴影，增加立体感 */
+        text-shadow: 1px 1px 5px rgba(0,0,0,0.5) !important;
     }
 
-    .dark .entry-content, .dark .post-description {
-        color: #d1d1d1 !important;
-    }
-
-    /* 修正底部的按钮和链接颜色 */
-    .dark .entry-footer, .dark .social-icons {
-        color: #aaa !important;
+    /* 3. 修复主页可能出现的空白背景 */
+    .list {
+        background: transparent !important;
     }
 </style>
+
