@@ -7,9 +7,6 @@ theme = "PaperMod"
     disableFingerprinting = true
 
 [params]
-    # 这一行是激活二次元背景的关键
-    customCSS = ["css/extended.css"] 
-
     # 允许在首页显示文章列表
     showFullContents = false
     # 告诉主题去哪个文件夹抓取内容显示在首页

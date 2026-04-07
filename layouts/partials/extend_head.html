@@ -1,0 +1,19 @@
+<style>
+    body {
+        background-image: url("https://lordvaderh.github.io/images/bg.png") !important;
+        background-attachment: fixed !important;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+
+    /* 修复卡片透明度，让文字在亮/暗模式下都能看清 */
+    .post-entry, .article-content, .post-content, .list, .main {
+        background: rgba(255, 255, 255, 0.85) !important;
+        backdrop-filter: blur(12px) !important;
+        border-radius: 15px !important;
+    }
+
+    .dark .post-entry, .dark .article-content, .dark .post-content, .dark .list {
+        background: rgba(30, 30, 30, 0.75) !important;
+    }
+</style>
