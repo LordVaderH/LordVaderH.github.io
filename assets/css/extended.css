@@ -1,24 +1,15 @@
-/* 全局背景 */
+/* 全局背景 - 使用绝对路径确保抓取 */
 body {
-    background-image: url("/images/bg.png") !important;
+    background-image: url("https://lordvaderh.github.io/images/bg.png") !important;
     background-attachment: fixed !important;
     background-size: cover !important;
     background-position: center !important;
+    background-repeat: no-repeat !important;
 }
 
-/* 方框透明度 */
+/* 优化文章卡片，防止颜色太诡异 */
 .post-entry, .article-content, .post-content, .list, .main {
-    background: rgba(255, 255, 255, 0.8) !important;
+    background: rgba(255, 255, 255, 0.9) !important; /* 稍微加深白色，确保文字清晰 */
     backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important; /* 兼容手机浏览器 */
+    border-radius: 12px;
 }
-
-/* 暗色模式适配 */
-.dark {
-    background: transparent !important;
-}
-
-.dark .post-entry, .dark .article-content, .dark .post-content, .dark .list {
-    background: rgba(30, 30, 30, 0.7) !important;
-}
-

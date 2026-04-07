@@ -1,22 +1,15 @@
-/* 设置全局背景 */
+/* 全局背景 - 使用绝对路径确保抓取 */
 body {
-    background-image: url("/images/bg.png");
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
+    background-image: url("https://lordvaderh.github.io/images/bg.png") !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
 }
 
-/* 让文章卡片半透明（磨砂玻璃感） */
-.post-entry, .article-content, .post-content, .list {
-    background: rgba(255, 255, 255, 0.8) !important; /* 浅色模式半透明 */
-    backdrop-filter: blur(8px); /* 模糊背景 */
-    border-radius: 15px;
-    margin-bottom: 20px;
-    padding: 20px;
+/* 优化文章卡片，防止颜色太诡异 */
+.post-entry, .article-content, .post-content, .list, .main {
+    background: rgba(255, 255, 255, 0.9) !important; /* 稍微加深白色，确保文字清晰 */
+    backdrop-filter: blur(10px) !important;
+    border-radius: 12px;
 }
-
-/* 黑夜模式下的半透明效果 */
-.dark .post-entry, .dark .article-content, .dark .post-content, .dark .list {
-    background: rgba(30, 30, 30, 0.7) !important; /* 深色模式半透明 */
-}
-
