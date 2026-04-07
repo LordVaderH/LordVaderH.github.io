@@ -1,5 +1,5 @@
 <style>
-    /* 1. 强制背景图显示 */
+    /* 1. 背景图：确保全屏铺满且固定 */
     body {
         background-image: url("https://lordvaderh.github.io/images/bg.png") !important;
         background-attachment: fixed !important;
@@ -7,25 +7,40 @@
         background-position: center !important;
     }
 
-    /* 2. 让中间的白色大框变窄，露出两侧背景 */
+    /* 2. 容器：彻底去掉灰蒙蒙的底色，只留极淡的边框感 */
     .main {
-        max-width: 800px !important; /* 缩小宽度 */
-        margin: auto !important;
+        max-width: 850px !important;
         background: transparent !important;
     }
 
-    /* 3. 核心：大幅度提升透明度 (从 0.85 降到 0.4) */
     .post-entry, .post-content, .article-content, .list {
-        background: rgba(255, 255, 255, 0.4) !important; /* 0.4 是关键，能透出背景 */
-        backdrop-filter: blur(8px) !important; /* 磨砂效果 */
-        -webkit-backdrop-filter: blur(8px) !important;
-        border-radius: 15px !important;
+        background: rgba(255, 255, 255, 0.15) !important; /* 极高透明度，露出背景 */
+        backdrop-filter: blur(4px) !important; /* 减弱模糊，让背景更清晰 */
+        -webkit-backdrop-filter: blur(4px) !important;
         border: 1px solid rgba(255, 255, 255, 0.2) !important;
-        box-shadow: none !important;
+        color: #000000 !important; /* 强制白天模式文字为纯黑，防止模糊 */
     }
 
-    /* 4. 暗色模式适配 */
+    /* 3. 标题和正文对比度增强 */
+    .post-title, .post-header, .first-entry h2, .entry-content {
+        color: #000000 !important;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* 给文字加微弱白光，确保在深色背景上也清晰 */
+    }
+
+    /* 4. 黑夜模式专用适配 */
     .dark .post-entry, .dark .post-content, .dark .article-content, .dark .list {
-        background: rgba(30, 30, 30, 0.5) !important;
+        background: rgba(0, 0, 0, 0.3) !important; /* 暗色模式下用深色半透明 */
+        color: #ffffff !important;
+    }
+
+    .dark .post-title, .dark .entry-content, .dark .post-header {
+        color: #ffffff !important;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    }
+
+    /* 5. 隐藏遮挡视线的页脚背景 */
+    .footer {
+        background: transparent !important;
+        color: #ccc !important;
     }
 </style>
