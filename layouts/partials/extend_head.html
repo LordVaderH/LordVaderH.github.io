@@ -1,5 +1,5 @@
 <style>
-    /* 全站背景图 */
+    /* 1. 全站背景图：确保任何页面都显示 */
     html {
         background: url("https://lordvaderh.github.io/images/bg.png") no-repeat center center fixed !important;
         background-size: cover !important;
@@ -9,52 +9,50 @@
         background: transparent !important;
     }
 
+    /* 2. 容器宽度：露出更多背景图 */
     .main {
         max-width: 850px !important;
         background: transparent !important;
     }
 
-    /* --- 白天模式：黑字强对比 --- */
+    /* --- 白天模式：清爽黑字 --- */
     .post-entry, .post-content, .article-content, .first-entry, .list {
-        background: rgba(255, 255, 255, 0.85) !important; /* 稍微加厚一点，减少背景干扰 */
-        backdrop-filter: blur(12px) !important;
+        background: rgba(255, 255, 255, 0.8) !important;
+        backdrop-filter: blur(10px) !important;
         border-radius: 12px !important;
-        color: #000000 !important; /* 强制纯黑字 */
+        color: #000000 !important; /* 纯黑字 */
         margin-bottom: 20px !important;
         padding: 25px !important;
     }
 
-    /* 强化白天标题 */
     .post-title, .entry-header h2 {
         color: #000 !important;
-        font-weight: 900 !important; /* 加粗 */
+        font-weight: 800 !important;
     }
 
-    /* --- 黑夜模式：深邃纯黑，白字跳脱 --- */
-    /* 彻底杀掉白内障感的灰底，换成纯黑遮罩 */
+    /* --- 黑夜模式：深色压制，告别模糊 --- */
+    /* 我们用近乎纯黑的半透明（0.9）来强行拉开与白字的距离 */
     .dark .post-entry, .dark .post-content, .dark .article-content, .dark .list, .dark .first-entry {
-        background: rgba(0, 0, 0, 0.9) !important; /* 提高到 0.9，让容器接近纯黑 */
+        background: rgba(10, 10, 10, 0.92) !important; 
         backdrop-filter: blur(15px) !important;
-        color: #ffffff !important; /* 强制纯白字 */
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        color: #ffffff !important; /* 纯白字 */
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
     }
 
-    /* 强化黑夜模式标题：加粗 + 发光阴影 */
+    /* 强化黑夜模式标题：通过黑影把字“抠”出来 */
     .dark .post-title, .dark .entry-header h2 {
         color: #ffffff !important;
-        font-weight: 900 !important;
-        text-shadow: 0 0 10px rgba(0,0,0,1), 0 0 5px rgba(255,255,255,0.2) !important;
+        font-weight: 800 !important;
+        text-shadow: 2px 2px 4px #000 !important; /* 强力黑阴影 */
     }
 
-    /* 强化正文可读性 */
-    .entry-content, .post-description {
-        line-height: 1.6 !important;
-        font-weight: 500 !important;
+    .dark .entry-content, .dark .post-description {
+        color: #e0e0e0 !important;
     }
 
-    /* 适配导航栏，确保在背景图上不突兀 */
+    /* 导航栏适配 */
     .nav {
-        background: rgba(255, 255, 255, 0.1) !important;
+        background: transparent !important;
         backdrop-filter: blur(5px);
     }
 </style>
