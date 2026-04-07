@@ -1,53 +1,50 @@
 <style>
-    /* 1. 全站背景：高清、固定、不模糊 */
+    /* 1. 全站背景高清锁死 */
     html, body {
         background: url("https://lordvaderh.github.io/images/bg.png") no-repeat center center fixed !important;
         background-size: cover !important;
     }
 
-    /* 2. 彻底去掉 body 的默认底色，让背景图直接透出来 */
     body {
         background-color: transparent !important;
     }
 
-    /* 3. 容器调整：让主页和文章页的方块变得极度透明 */
+    /* 2. 容器深度透明化：解决长文章挡住背景的问题 */
+    /* 我们把透明度从 0.2 降到 0.05，几乎全透明，只留一丝丝质感 */
     .main, .first-entry, .post-entry, .post-content, .article-content, .list {
-        background: rgba(255, 255, 255, 0.2) !important; /* 极高透明度，背景高清可见 */
-        backdrop-filter: none !important; /* 彻底去掉模糊效果，要的就是高清 */
+        background: rgba(255, 255, 255, 0.05) !important; 
+        backdrop-filter: none !important; 
         -webkit-backdrop-filter: none !important;
         border-radius: 8px !important;
         margin-bottom: 20px !important;
-        /* 强制锁定文字为黑体、纯黑颜色 */
+        /* 强制锁定文字为纯黑 */
         color: #000000 !important; 
-        font-family: "Source Han Sans CN", "Microsoft YaHei", sans-serif !important;
-        font-weight: 700 !important;
+        font-weight: 600 !important;
     }
 
-    /* 4. 文字可读性补丁：给黑字加一层淡淡的白边，防止在深色背景下看不清 */
-    .post-title, .entry-header h2, .entry-content, .post-header, p, span, a {
+    /* 3. 文字无敌补丁：解决“白字消失”或“黑字看不清” */
+    /* 无论白天黑夜，无论背景多花，黑字加白边是唯一解 */
+    .post-title, .entry-header h2, .entry-content, .post-header, p, span, a, li, h1, h2, h3, h4 {
         color: #000000 !important;
         text-shadow: 
-            1px 1px 0 #fff, 
+            2px 2px 0 #fff, 
             -1px -1px 0 #fff, 
             1px -1px 0 #fff, 
-            -1px 1px 0 #fff !important; /* 四向白色描边，确保黑字无敌 */
+            -1px 1px 0 #fff,
+            0px 0px 5px rgba(255,255,255,0.8) !important; /* 加强白色描边 */
     }
 
-    /* --- 区分度调整 --- */
-
-    /* 白天模式：容器带一点白感 */
-    :not(.dark) .post-entry, :not(.dark) .first-entry, :not(.dark) .post-content {
-        background: rgba(255, 255, 255, 0.4) !important;
+    /* 4. 针对黑夜模式的特殊处理：防止它偷偷变回白字 */
+    .dark .post-title, .dark .entry-header h2, .dark .entry-content, .dark p, .dark a, .dark li {
+        color: #000000 !important;
     }
 
-    /* 黑夜模式：容器带一点黑感，但文字依然保持黑色 */
-    .dark .post-entry, .dark .first-entry, .dark .post-content {
-        background: rgba(0, 0, 0, 0.3) !important; /* 深色半透明，但背景图依然清晰 */
-    }
+    /* 5. 模式区分度：只改变容器的极细微色调，不影响看图 */
+    :not(.dark) .main { background: rgba(255, 255, 255, 0.1) !important; }
+    .dark .main { background: rgba(0, 0, 0, 0.2) !important; }
 
-    /* 导航栏和按钮同步锁定 */
-    .nav, .footer, .button {
+    /* 导航栏透明 */
+    .nav {
         background: transparent !important;
-        color: #000 !important;
     }
 </style>
