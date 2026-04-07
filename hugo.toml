@@ -2,15 +2,20 @@ baseURL = 'https://lordvaderh.github.io/'
 languageCode = 'zh-cn'
 title = '我的个人博客'
 theme = "PaperMod"
+
 [assets]
     disableFingerprinting = true
+
 [params]
+    # 这一行是激活二次元背景的关键
+    customCSS = ["css/extended.css"] 
+
     # 允许在首页显示文章列表
     showFullContents = false
     # 告诉主题去哪个文件夹抓取内容显示在首页
     mainSections = ["posts"]
-    
-    # 开启首页的个人简介模式（可选，会让首页更好看）
+
+    # 关闭个人简介模式，让首页直接显示文章卡片
     [params.profileMode]
         enabled = false
         title = "LordVaderH 的博客"
