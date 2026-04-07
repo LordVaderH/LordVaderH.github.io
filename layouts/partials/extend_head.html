@@ -1,58 +1,53 @@
 <style>
-    /* 1. 全站背景图：确保任何页面都显示 */
-    html {
+    /* 1. 全站背景：高清、固定、不模糊 */
+    html, body {
         background: url("https://lordvaderh.github.io/images/bg.png") no-repeat center center fixed !important;
         background-size: cover !important;
     }
 
+    /* 2. 彻底去掉 body 的默认底色，让背景图直接透出来 */
     body {
-        background: transparent !important;
+        background-color: transparent !important;
     }
 
-    /* 2. 容器宽度：露出更多背景图 */
-    .main {
-        max-width: 850px !important;
-        background: transparent !important;
-    }
-
-    /* --- 白天模式：清爽黑字 --- */
-    .post-entry, .post-content, .article-content, .first-entry, .list {
-        background: rgba(255, 255, 255, 0.8) !important;
-        backdrop-filter: blur(10px) !important;
-        border-radius: 12px !important;
-        color: #000000 !important; /* 纯黑字 */
+    /* 3. 容器调整：让主页和文章页的方块变得极度透明 */
+    .main, .first-entry, .post-entry, .post-content, .article-content, .list {
+        background: rgba(255, 255, 255, 0.2) !important; /* 极高透明度，背景高清可见 */
+        backdrop-filter: none !important; /* 彻底去掉模糊效果，要的就是高清 */
+        -webkit-backdrop-filter: none !important;
+        border-radius: 8px !important;
         margin-bottom: 20px !important;
-        padding: 25px !important;
+        /* 强制锁定文字为黑体、纯黑颜色 */
+        color: #000000 !important; 
+        font-family: "Source Han Sans CN", "Microsoft YaHei", sans-serif !important;
+        font-weight: 700 !important;
     }
 
-    .post-title, .entry-header h2 {
-        color: #000 !important;
-        font-weight: 800 !important;
+    /* 4. 文字可读性补丁：给黑字加一层淡淡的白边，防止在深色背景下看不清 */
+    .post-title, .entry-header h2, .entry-content, .post-header, p, span, a {
+        color: #000000 !important;
+        text-shadow: 
+            1px 1px 0 #fff, 
+            -1px -1px 0 #fff, 
+            1px -1px 0 #fff, 
+            -1px 1px 0 #fff !important; /* 四向白色描边，确保黑字无敌 */
     }
 
-    /* --- 黑夜模式：深色压制，告别模糊 --- */
-    /* 我们用近乎纯黑的半透明（0.9）来强行拉开与白字的距离 */
-    .dark .post-entry, .dark .post-content, .dark .article-content, .dark .list, .dark .first-entry {
-        background: rgba(10, 10, 10, 0.92) !important; 
-        backdrop-filter: blur(15px) !important;
-        color: #ffffff !important; /* 纯白字 */
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    /* --- 区分度调整 --- */
+
+    /* 白天模式：容器带一点白感 */
+    :not(.dark) .post-entry, :not(.dark) .first-entry, :not(.dark) .post-content {
+        background: rgba(255, 255, 255, 0.4) !important;
     }
 
-    /* 强化黑夜模式标题：通过黑影把字“抠”出来 */
-    .dark .post-title, .dark .entry-header h2 {
-        color: #ffffff !important;
-        font-weight: 800 !important;
-        text-shadow: 2px 2px 4px #000 !important; /* 强力黑阴影 */
+    /* 黑夜模式：容器带一点黑感，但文字依然保持黑色 */
+    .dark .post-entry, .dark .first-entry, .dark .post-content {
+        background: rgba(0, 0, 0, 0.3) !important; /* 深色半透明，但背景图依然清晰 */
     }
 
-    .dark .entry-content, .dark .post-description {
-        color: #e0e0e0 !important;
-    }
-
-    /* 导航栏适配 */
-    .nav {
+    /* 导航栏和按钮同步锁定 */
+    .nav, .footer, .button {
         background: transparent !important;
-        backdrop-filter: blur(5px);
+        color: #000 !important;
     }
 </style>
