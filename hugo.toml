@@ -2,7 +2,8 @@ baseURL = 'https://lordvaderh.github.io/'
 languageCode = 'zh-cn'
 title = '我的个人博客'
 theme = "PaperMod"
-
+[assets]
+    disableFingerprinting = true
 [params]
     # 允许在首页显示文章列表
     showFullContents = false
