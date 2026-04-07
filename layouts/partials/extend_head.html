@@ -1,5 +1,4 @@
 <style>
-    /* 全局背景图保持不变 */
     body {
         background-image: url("https://lordvaderh.github.io/images/bg.png") !important;
         background-attachment: fixed !important;
@@ -7,43 +6,41 @@
         background-position: center !important;
     }
 
-    /* 容器基础设置 */
     .main {
         max-width: 850px !important;
         background: transparent !important;
     }
 
-    /* --- 白天模式优化 --- */
+    /* --- 白天模式：保持轻盈 --- */
     .post-entry, .post-content, .article-content, .list {
-        background: rgba(255, 255, 255, 0.4) !important; /* 增加一点厚度，保护视力 */
-        backdrop-filter: blur(8px) !important;
-        -webkit-backdrop-filter: blur(8px) !important;
+        background: rgba(255, 255, 255, 0.7) !important; 
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
         border-radius: 12px !important;
-        color: #1d1d1f !important; /* 柔和的深黑 */
-    }
-    
-    /* 增强白天标题可读性 */
-    .post-title, .first-entry h2 {
-        color: #000 !important;
-        font-weight: bold !important;
+        color: #1d1d1f !important;
+        padding: 20px !important;
     }
 
-    /* --- 黑夜模式优化（核心修正点） --- */
+    /* --- 黑夜模式：深色压底，确保文字跳脱出来 --- */
     .dark .post-entry, .dark .post-content, .dark .article-content, .dark .list {
-        background: rgba(15, 15, 15, 0.8) !important; /* 大幅增加背景厚度，彻底解决文字看不清 */
-        backdrop-filter: blur(12px) !important;
+        background: rgba(10, 10, 10, 0.85) !important; /* 极深的底色 */
+        backdrop-filter: blur(15px) !important;
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        color: #e1e1e1 !important; /* 纯白文字在深背景下更清晰 */
+        color: #f0f0f0 !important; /* 纯净的浅灰白文字 */
     }
 
-    /* 拉开黑夜模式标题的区分度 */
-    .dark .post-title, .dark .first-entry h2 {
-        color: #fff !important;
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    /* 强化黑夜模式下的标题和正文 */
+    .dark .post-title, .dark .first-entry h2, .dark .entry-header h2 {
+        color: #ffffff !important;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5) !important; /* 文字阴影，增加立体感 */
     }
 
-    /* 优化侧边栏和按钮，防止排版破坏 */
-    .top-link, .buttons, .entry-footer {
-        background: transparent !important;
+    .dark .entry-content, .dark .post-description {
+        color: #d1d1d1 !important;
+    }
+
+    /* 修正底部的按钮和链接颜色 */
+    .dark .entry-footer, .dark .social-icons {
+        color: #aaa !important;
     }
 </style>
