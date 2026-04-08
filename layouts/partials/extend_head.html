@@ -1,71 +1,42 @@
 <style>
-    /* 1. 统一背景图，全站高清 */
+    /* 1. 背景高清固定 */
     html, body {
         background: url("https://lordvaderh.github.io/images/bg.png") no-repeat center center fixed !important;
         background-size: cover !important;
-        background-color: transparent !important;
     }
 
-    /* 2. 隐藏右上角的白天/黑夜切换按钮，全站统一视觉 */
-    #theme-toggle {
-        display: none !important;
-    }
+    body { background-color: transparent !important; }
+    #theme-toggle { display: none !important; } /* 统一视觉，隐藏切换按钮 */
 
-    /* 3. 统一容器：柔和的半透明磨砂玻璃 */
+    /* 2. 高透明容器：透明度从 0.8 降到 0.2，角色清晰可见 */
     .main, .first-entry, .post-entry, .post-content, .article-content, .list {
-        background: rgba(255, 255, 255, 0.8) !important; /* 80%的白底，透出背景轮廓但不抢戏 */
-        backdrop-filter: blur(12px) !important; /* 适度模糊，给文字提供干净的阅读区 */
-        -webkit-backdrop-filter: blur(12px) !important;
+        background: rgba(255, 255, 255, 0.2) !important; 
+        backdrop-filter: blur(4px) !important; /* 极轻微模糊，不遮挡角色，仅为了让字好认 */
+        -webkit-backdrop-filter: blur(4px) !important;
         border-radius: 12px !important;
+        box-shadow: none !important;
         border: none !important;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important; /* 极弱的阴影增加质感 */
     }
 
-    /* 4. 舒适的排版间距（保留你的喜好） */
-    .main {
-        max-width: 800px !important;
-        margin: 0 auto !important;
-    }
-    .post-content, .article-content {
-        padding: 20px 25px !important;
-    }
-
-    /* 5. 核心：彻底去掉阴影，使用柔和护眼色 */
-    * {
-        text-shadow: none !important; /* 杀掉所有文字白边和黑边 */
+    /* 3. 文字柔和化：无描边，深灰黑，极致排版 */
+    h1, h2, h3, .post-title, .entry-header h2 {
+        color: #1a1a1a !important;
+        text-shadow: none !important; /* 彻底移除眼睛痛的根源 */
+        font-weight: 800 !important;
+        line-height: 1.5 !important;
     }
 
-    /* 标题：使用高级的深青灰色，微微加粗，清晰但不刺眼 */
-    h1, h2, h3, h4, h5, h6, .post-title, .entry-header h2 {
-        color: #2c3e50 !important; 
-        font-family: "PingFang SC", "Microsoft YaHei", sans-serif !important;
-        font-weight: 600 !important; 
-        margin-top: 1.5em !important;
-        margin-bottom: 0.5em !important;
+    p, li, span, code, .entry-content, .post-description {
+        color: #222222 !important;
+        text-shadow: none !important;
+        font-weight: 500 !important;
+        line-height: 1.8 !important; /* 拉开行距，长文不累 */
+        letter-spacing: 0.03em !important;
     }
 
-    /* 正文：使用柔和的深灰色，恢复正常粗细，适合长文阅读 */
-    p, a, li, span, code, blockquote, footer, .entry-content, .post-description {
-        color: #333333 !important; 
-        font-family: "PingFang SC", "Microsoft YaHei", sans-serif !important;
-        font-weight: 400 !important; /* 取消强制加粗，释放眼睛压力 */
-        line-height: 1.8 !important; 
-        letter-spacing: 0.02em !important;
+    /* 4. 强制覆盖黑夜模式干扰 */
+    .dark .main, .dark .post-entry, .dark .post-content {
+        background: rgba(255, 255, 255, 0.2) !important;
     }
-
-    /* 6. 防御性代码：强制覆盖系统的深色模式，防止主题偷偷变色 */
-    .dark .main, .dark .first-entry, .dark .post-entry, .dark .post-content, .dark .article-content, .dark .list {
-        background: rgba(255, 255, 255, 0.8) !important;
-    }
-    .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark .post-title, .dark .entry-header h2 {
-        color: #2c3e50 !important;
-    }
-    .dark p, .dark a, .dark li, .dark span, .dark code, .dark blockquote, .dark footer, .dark .entry-content, .dark .post-description {
-        color: #333333 !important;
-    }
-    
-    /* 导航栏文本统一柔和化 */
-    .nav a, .nav button, .logo {
-        color: #2c3e50 !important;
-    }
+    .dark h1, .dark p, .dark li { color: #1a1a1a !important; }
 </style>
