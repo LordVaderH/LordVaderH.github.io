@@ -1,51 +1,68 @@
 <style>
-    /* 1. 全站背景高清固定 */
-    html {
+    /* 1. 背景高清锁死，禁止任何自带滤镜 */
+    html, body {
         background: url("https://lordvaderh.github.io/images/bg.png") no-repeat center center fixed !important;
         background-size: cover !important;
     }
 
     body {
-        background: transparent !important;
+        background-color: transparent !important;
     }
 
-    /* 2. 主页：极致透明，一定要看清背景图 */
-    .list, .first-entry, .post-entry {
-        background: rgba(255, 255, 255, 0.1) !important; /* 极薄的亮色 */
+    /* 2. 容器极简透明：不再使用模糊，防止“白内障” */
+    .main, .first-entry, .post-entry, .post-content, .article-content, .list {
+        background: rgba(255, 255, 255, 0.02) !important; /* 近乎全透明 */
         backdrop-filter: none !important;
-        border-radius: 12px !important;
-        margin-bottom: 20px !important;
+        box-shadow: none !important;
+        border: none !important;
     }
 
-    /* 3. 长文章页：为了眼睛，使用磨砂玻璃，但限制宽度 */
+    /* 🌟 新增优化：限制阅读宽度，给长文章加内边距，防止文字贴边 */
+    .main {
+        max-width: 800px !important; /* 缩小一点宽度，视线不疲劳 */
+        margin: 0 auto !important;
+    }
     .post-content, .article-content {
-        background: rgba(255, 255, 255, 0.8) !important; /* 足够厚，让字不累眼 */
-        backdrop-filter: blur(12px) !important;
-        -webkit-backdrop-filter: blur(12px) !important;
-        padding: 30px !important;
-        border-radius: 16px !important;
-        color: #1a1a1a !important; /* 护眼深灰黑 */
+        padding: 0 15px !important; /* 让长文章左右有点留白 */
     }
 
-    /* 4. 核心：锁定文字可读性 (全时段生效) */
-    h1, h2, h3, p, li, a {
+    /* 3. 核心：全标签黑字锁死 + 增强型白边描边 */
+    h1, h2, h3, h4, h5, h6, p, a, li, span, code, blockquote, footer, .post-title, .entry-header h2, .entry-content, .post-description {
+        color: #000000 !important;
         font-family: "PingFang SC", "Microsoft YaHei", sans-serif !important;
-        line-height: 1.7 !important;
+        font-weight: 700 !important; /* 强制黑体感 */
+        
+        /* 🌟 新增优化：拉大行间距和字间距，解决密集恐惧症和眼睛痛 */
+        line-height: 1.8 !important; 
+        letter-spacing: 0.02em !important;
+        
+        /* 使用四层重叠描边，确保在全黑或全白的背景下，黑字都清晰可见 */
+        text-shadow: 
+            2px 2px 0 #fff, 
+            -2px -2px 0 #fff, 
+            2px -2px 0 #fff, 
+            -2px 2px 0 #fff,
+            0 0 8px rgba(255,255,255,0.9) !important; 
     }
 
-    /* 5. 黑夜模式专用：容器变深，字变亮，防止白内障 */
-    .dark .list, .dark .first-entry, .dark .post-entry {
-        background: rgba(0, 0, 0, 0.2) !important; /* 首页保持通透 */
+    /* 给标题额外再大一点间距，拉开层次 */
+    h1, h2, h3 {
+        margin-top: 1.5em !important;
+        margin-bottom: 0.5em !important;
     }
 
-    .dark .post-content, .dark .article-content {
-        background: rgba(20, 20, 23, 0.85) !important; /* 文章内页变深 */
-        color: #e0e0e0 !important;
+    /* 4. 彻底杀掉黑夜模式的自动变色逻辑 */
+    .dark * {
+        color: #000000 !important; /* 强制黑夜模式下所有元素也必须是黑色 */
     }
 
-    /* 标题在任何模式下都要够显眼 */
-    .post-title, .entry-header h2 {
-        font-weight: 800 !important;
-        color: inherit !important;
+    /* 5. 模式区分度：仅通过微弱的蒙版色调区分，不遮挡背景 */
+    :not(.dark) .main { background: rgba(255, 255, 255, 0.1) !important; }
+    .dark .main { background: rgba(0, 0, 0, 0.1) !important; }
+
+    /* 导航栏和图标同步黑化 */
+    .nav a, .nav button, #theme-toggle {
+        color: #000 !important;
+        filter: drop-shadow(0 0 2px white);
     }
 </style>
